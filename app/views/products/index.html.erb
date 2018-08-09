@@ -10,7 +10,10 @@ $(function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
     $.get("/products/" + id + '.json', function(data) {
-      inventory = data['inventory'] > 0 ? 'Available' : 'Sold Out';
+      inventory = 'Available';
+      if (data['inventory'] === 0){
+         inventory =  'Sold Out';
+      }
         var descriptionText = "<p>" + data['description'] + "</p><p>" + inventory + "</p>";
         $("#product-" + id).text(descriptionText);
         var orders = "";

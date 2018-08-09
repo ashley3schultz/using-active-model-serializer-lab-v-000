@@ -15,9 +15,10 @@ $(function() {
          inventory = 'Sold Out';
       }
         var descriptionText = "<p>" + data['description'] + "</p><p>" + inventory + "</p>";
-        $("#product-" + id).text(descriptionText);
+        $("#product-" + id).html(descriptionText);
+        var allordrs = product["orders"]
         var orders = "";
-        product["orders"].forEach(function(order){
+        allordrs.forEach(function(order){
           orders += '<li class="js-order" data-id="' + order["id"] + '">' + order["id"] + ' - ' + order["created_at"] + '</li>';
         });
         $("#product-" + id + -orders).html(orders);

@@ -17,7 +17,7 @@ $(function() {
         product["orders"].forEach(function(order){
           orders += '<li class="js-order" data-id="' + order["id"] + '">' + order["id"] + ' - ' + order["created_at"] + '</li>';
         });
-        $("#product-" + id).html(orders);
+        $("#product-" + id + -orders).html(orders);
       });
     });
   });

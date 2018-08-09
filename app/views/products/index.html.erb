@@ -10,14 +10,13 @@ $(function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
     $.get("/products/" + id + '.json', function(data) {
-      var product = data
       var inventory = 'Available';
       if (data['inventory'] === 0){
          inventory = 'Sold Out';
       }
         var descriptionText = "<p>" + data['description'] + "</p><p>" + inventory + "</p>";
         $("#product-" + id).html(descriptionText);
-        var all = product["orders"]
+        var all = data["orders"]
         var orders = "";
         all.forEach(function(order){
           orders += '<li class="js-order" data-id="' + order["id"] + '">' + order["id"] + ' - ' + order["created_at"] + '</li>';

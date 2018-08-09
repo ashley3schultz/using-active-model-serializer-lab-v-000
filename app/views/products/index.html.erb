@@ -12,7 +12,7 @@ $(function() {
     $.get("/products/" + id + '.json', function(data) {
       inventory = data['inventory'] > 0 ? 'Available' : 'Sold Out';
         var descriptionText = "<p>" + data['description'] + "</p><p>" + inventory + "</p>";
-        $("#product-" + id).html(descriptionText);
+        $("#product-" + id).text(descriptionText);
         var orders = "";
         product["orders"].forEach(function(order){
           orders += '<li class="js-order" data-id="' + order["id"] + '">' + order["id"] + ' - ' + order["created_at"] + '</li>';

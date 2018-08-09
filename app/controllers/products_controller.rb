@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
      format.html { render :show }
      format.json { render json: @product }
    end
-  end
+ end
 
   private
 

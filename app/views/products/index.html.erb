@@ -21,7 +21,7 @@ $(function() {
         allordrs.forEach(function(order){
           orders += '<li class="js-order" data-id="' + order["id"] + '">' + order["id"] + ' - ' + order["created_at"] + '</li>';
         });
-        $("#product-" + id + -orders).html(orders);
+        $("#product-" + id).html(orders);
       });
     });
   });
